@@ -48,11 +48,12 @@ const getSalario = (empleado) =>{
 }
 
 getEmpleado(1).then(empleado=>{
-    getSalario(empleado).then(resp=>{
-        console.log(`El salario de ${resp.nombre} es de $ ${resp.salario}`)
-    }, error=>{
-        console.log(error)
-    })
-}, (error)=>{
+    return getSalario(empleado)
+})
+// este then es del return de arriba
+.then(resp=>{
+    console.log(`El salario de ${resp.nombre} es de ${resp.salario}`)
+})
+.catch(error=>{
     console.log(error)
 })
